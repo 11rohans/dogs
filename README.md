@@ -3,7 +3,7 @@ Simple flask app that uses a CNN to classify dogs by breed
 
 # TODO
 
-### Saturday
+### Week 1
 
 Preprocess dog data.
 Reading on which Keras pretrained model to use (probably VGG16, VGG19 or InceptionV3).
@@ -11,14 +11,14 @@ Write requisite code to set up the model
 Train model on dog dataset
 DOCUMENTATION
 
-### Sunday
+### Week 2
 Run predictions to sanity check things
 Write a simple benchmarking tool
 If time permitting, attempt the other pretrained models and benchmark them against each other
 
 Build a flask interface for uploading images and outputting a prediction
 
-### Monday
+### Week 3
 
 Front-end
 Deployment considerations
@@ -28,6 +28,7 @@ Deployment considerations
 Benchmark other pretrained models if haven't already
 Curate/scrape more dog data to improve accuracy
 
+Do a guess the dog game for users. Machine vs the user.
 
 # References
 
