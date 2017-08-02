@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, make_response
 import os
 import random
 
@@ -8,7 +8,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template("index.html")
+    resp = make_response(render_template("index.html"))
+    resp.set_cookie("score", "0")
+    return resp
 
 
 @app.route("/dog", methods=["GET"])
@@ -55,9 +57,17 @@ def guess_handler():
     breed = request.form['breed']
     full_path = request.form['full_path']
     guess = request.form['dropdown']
+    score = int(request.cookies.get("score"))
 
-    return render_template(
-        "guess.html", guess=guess, breed=breed, full_path=full_path)
+    if breed == guess:
+        score += 1
+
+    resp = make_response(render_template("guess.html", guess=guess,
+                                         breed=breed, full_path=full_path,
+                                         score=score))
+    resp.set_cookie("score", str(score))
+
+    return resp
 
 
 # TODO
