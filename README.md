@@ -1,7 +1,39 @@
 # Dogs
 Simple flask app that uses a CNN to classify dogs by breed
 
-# TODO
+# Flask stuff/guessing game
+
+### Step 1
+Build out a basic guessing game functionality
+
+### Step 2
+Build navigational controls so the game can be repeated
+Create a good way for the user to know what their options for guessing are
+Sanitize user input
+
+### Step 3
+Computer vs Human model (Requires CV or DL model)
+Score tracking
+
+# TODO Computer Vision (CV) model
+
+### Step 1 (BoF)
+
+Build out a BoF model using a standard dictionary of features
+Use a IDF to test for similarity
+Generate a list of closest matches and display
+
+### Step 2 (VLAD)
+
+Build out the VLAD representation for features
+Use ADC model to test for similarity
+Generate a list of closest matches and display
+
+### Beyond
+
+Benchmarking, PCA?
+
+# TODO Deep Learning (DL) Model
 
 ### Week 1
 
@@ -29,6 +61,13 @@ Benchmark other pretrained models if haven't already
 Curate/scrape more dog data to improve accuracy
 
 Do a guess the dog game for users. Machine vs the user.
+
+# How to use
+
+## Guessing game
+Start at endpoint /dog to get a random dog.
+
+Guess what breed the dog is and click submit.
 
 # References
 
