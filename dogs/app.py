@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    return ("test")
+    return render_template("index.html")
 
 
 @app.route("/dog", methods=["GET"])
@@ -24,12 +24,8 @@ def get_random_dog_handler():
 
     full_path = "images" + "/" + breed_path + "/" + dog_image
 
-    def test():
-        print("TESTING")
-        return "TEST"
-
     return render_template(
-        "dog.html", breed=breed, full_path=full_path, test=test)
+        "dog.html", breed=breed, full_path=full_path)
 
 
 @app.route("/dog/<breed>/<dog_id>", methods=["GET"])
@@ -52,9 +48,13 @@ def get_dog_handler(breed, dog_id):
 
 @app.route("/guess/", methods=["POST"])
 def guess_handler():
-    guess = request.form['guess']
+
+    # TODO: Convert both of these to lower case (no longer relevant w/ dropdown) # noqa
+    # TODO: Alphabetize the dropdown
+    # guess = request.form['guess']
     breed = request.form['breed']
     full_path = request.form['full_path']
+    guess = request.form['dropdown']
 
     return render_template(
         "guess.html", guess=guess, breed=breed, full_path=full_path)

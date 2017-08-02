@@ -3,16 +3,138 @@
   <body>
     <title>Here's a random dog</title>
 
-    <h1>{{ breed }}</h1>
+    <!-- <h1>{{ breed }}</h1> -->
 
     <img src="{{ url_for('static', filename=full_path) }}" alt="{{ full_path }}">
 
     <form action="{{ url_for('guess_handler')}}" method="POST">
       <p>Enter guess</p>
-      <p><input type="text" name="guess" /></p>
+      <!-- <p><input type="text" name="guess" /></p> -->
       <input type="hidden" name="breed" value="{{ breed }}">
       <input type="hidden" name="full_path" value="{{ full_path }}">
       <p><input type="submit" value="test" /></p>
+      <select name="dropdown">
+        <option value="affenpinscher">affenpinscher</option>
+        <option value="Afghan hound">Afghan hound</option>
+        <option value="African hunting dog">African hunting dog</option>
+        <option value="Airedale">Airedale</option>
+        <option value="American Staffordshire terrier">American Staffordshire terrier</option>
+        <option value="Appenzeller">Appenzeller</option>
+        <option value="Australian terrier">Australian terrier</option>
+        <option value="basenji">basenji</option>
+        <option value="basset">basset</option>
+        <option value="beagle">beagle</option>
+        <option value="Bedlington terrier">Bedlington terrier</option>
+        <option value="Bernese mountain dog">Bernese mountain dog</option>
+        <option value="black">black</option>
+        <option value="Blenheim spaniel">Blenheim spaniel</option>
+        <option value="bloodhound">bloodhound</option>
+        <option value="bluetick">bluetick</option>
+        <option value="Border collie">Border collie</option>
+        <option value="Border terrier">Border terrier</option>
+        <option value="borzoi">borzoi</option>
+        <option value="Boston bull">Boston bull</option>
+        <option value="Bouvier des Flandres">Bouvier des Flandres</option>
+        <option value="boxer">boxer</option>
+        <option value="Brabancon griffon">Brabancon griffon</option>
+        <option value="briard">briard</option>
+        <option value="Brittany spaniel">Brittany spaniel</option>
+        <option value="bull mastiff">bull mastiff</option>
+        <option value="cairn">cairn</option>
+        <option value="Cardigan">Cardigan</option>
+        <option value="Chesapeake Bay retriever">Chesapeake Bay retriever</option>
+        <option value="Chihuahua">Chihuahua</option>
+        <option value="chow">chow</option>
+        <option value="clumber">clumber</option>
+        <option value="cocker spaniel">cocker spaniel</option>
+        <option value="collie">collie</option>
+        <option value="curly">curly</option>
+        <option value="Dandie Dinmont">Dandie Dinmont</option>
+        <option value="dhole">dhole</option>
+        <option value="dingo">dingo</option>
+        <option value="Doberman">Doberman</option>
+        <option value="English foxhound">English foxhound</option>
+        <option value="English setter">English setter</option>
+        <option value="English springer">English springer</option>
+        <option value="EntleBucher">EntleBucher</option>
+        <option value="Eskimo dog">Eskimo dog</option>
+        <option value="flat">flat</option>
+        <option value="French bulldog">French bulldog</option>
+        <option value="German shepherd">German shepherd</option>
+        <option value="German short">German short</option>
+        <option value="giant schnauzer">giant schnauzer</option>
+        <option value="golden retriever">golden retriever</option>
+        <option value="Gordon setter">Gordon setter</option>
+        <option value="Great Dane">Great Dane</option>
+        <option value="Great Pyrenees">Great Pyrenees</option>
+        <option value="Greater Swiss Mountain dog">Greater Swiss Mountain dog</option>
+        <option value="groenendael">groenendael</option>
+        <option value="Ibizan hound">Ibizan hound</option>
+        <option value="Irish setter">Irish setter</option>
+        <option value="Irish terrier">Irish terrier</option>
+        <option value="Irish water spaniel">Irish water spaniel</option>
+        <option value="Irish wolfhound">Irish wolfhound</option>
+        <option value="Italian greyhound">Italian greyhound</option>
+        <option value="Japanese spaniel">Japanese spaniel</option>
+        <option value="keeshond">keeshond</option>
+        <option value="kelpie">kelpie</option>
+        <option value="Kerry blue terrier">Kerry blue terrier</option>
+        <option value="komondor">komondor</option>
+        <option value="kuvasz">kuvasz</option>
+        <option value="Labrador retriever">Labrador retriever</option>
+        <option value="Lakeland terrier">Lakeland terrier</option>
+        <option value="Leonberg">Leonberg</option>
+        <option value="Lhasa">Lhasa</option>
+        <option value="malamute">malamute</option>
+        <option value="malinois">malinois</option>
+        <option value="Maltese dog">Maltese dog</option>
+        <option value="Mexican hairless">Mexican hairless</option>
+        <option value="miniature pinscher">miniature pinscher</option>
+        <option value="miniature poodle">miniature poodle</option>
+        <option value="miniature schnauzer">miniature schnauzer</option>
+        <option value="Newfoundland">Newfoundland</option>
+        <option value="Norfolk terrier">Norfolk terrier</option>
+        <option value="Norwegian elkhound">Norwegian elkhound</option>
+        <option value="Norwich terrier">Norwich terrier</option>
+        <option value="Old English sheepdog">Old English sheepdog</option>
+        <option value="otterhound">otterhound</option>
+        <option value="papillon">papillon</option>
+        <option value="Pekinese">Pekinese</option>
+        <option value="Pembroke">Pembroke</option>
+        <option value="Pomeranian">Pomeranian</option>
+        <option value="pug">pug</option>
+        <option value="redbone">redbone</option>
+        <option value="Rhodesian ridgeback">Rhodesian ridgeback</option>
+        <option value="Rottweiler">Rottweiler</option>
+        <option value="Saint Bernard">Saint Bernard</option>
+        <option value="Saluki">Saluki</option>
+        <option value="Samoyed">Samoyed</option>
+        <option value="schipperke">schipperke</option>
+        <option value="Scotch terrier">Scotch terrier</option>
+        <option value="Scottish deerhound">Scottish deerhound</option>
+        <option value="Sealyham terrier">Sealyham terrier</option>
+        <option value="Shetland sheepdog">Shetland sheepdog</option>
+        <option value="Shih">Shih</option>
+        <option value="Siberian husky">Siberian husky</option>
+        <option value="silky terrier">silky terrier</option>
+        <option value="soft">soft</option>
+        <option value="Staffordshire bullterrier">Staffordshire bullterrier</option>
+        <option value="standard poodle">standard poodle</option>
+        <option value="standard schnauzer">standard schnauzer</option>
+        <option value="Sussex spaniel">Sussex spaniel</option>
+        <option value="Tibetan mastiff">Tibetan mastiff</option>
+        <option value="Tibetan terrier">Tibetan terrier</option>
+        <option value="toy poodle">toy poodle</option>
+        <option value="toy terrier">toy terrier</option>
+        <option value="vizsla">vizsla</option>
+        <option value="Walker hound">Walker hound</option>
+        <option value="Weimaraner">Weimaraner</option>
+        <option value="Welsh springer spaniel">Welsh springer spaniel</option>
+        <option value="West Highland white terrier">West Highland white terrier</option>
+        <option value="whippet">whippet</option>
+        <option value="wire">wire</option>
+        <option value="Yorkshire terrier">Yorkshire terrier</option>
+      </select>
     </form>
   </body>
 </html>

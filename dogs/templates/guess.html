@@ -14,5 +14,9 @@
     <h1>You were wrong! Sorry</h1>
     {% endif %}
 
+    <form action="{{ url_for('get_random_dog_handler')}}" method="GET">
+      <p><input type="submit" value="try again?" /></p>
+    </form>
+
   </body>
 </html>
