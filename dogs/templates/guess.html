@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+  <body>
+    <title>Here's your guess!</title>
+
+    <h1>CORRECT ANSWER: {{ breed }}</h1>
+    <h1>YOUR GUESS: {{ guess }}</h1>
+
+    <img src="{{ url_for('static', filename=full_path) }}" alt="{{ full_path }}">
+
+    {% if guess==breed %}
+    <h1>You were right! Congrats</h1>
+    {% else %}
+    <h1>You were wrong! Sorry</h1>
+    {% endif %}
+
+  </body>
+</html>

@@ -1,6 +1,18 @@
 <!doctype html>
-<title>Here's a random dog</title>
+<html>
+  <body>
+    <title>Here's a random dog</title>
 
-<h1>{{ species }}</h1>
+    <h1>{{ breed }}</h1>
 
-<img src="{{ url_for('static', filename=full_path) }}" alt="{{ full_path }}">
+    <img src="{{ url_for('static', filename=full_path) }}" alt="{{ full_path }}">
+
+    <form action="{{ url_for('guess_handler')}}" method="POST">
+      <p>Enter guess</p>
+      <p><input type="text" name="guess" /></p>
+      <input type="hidden" name="breed" value="{{ breed }}">
+      <input type="hidden" name="full_path" value="{{ full_path }}">
+      <p><input type="submit" value="test" /></p>
+    </form>
+  </body>
+</html>
