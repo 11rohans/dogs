@@ -1,19 +1,22 @@
 # Dogs
-Simple flask app that uses a CNN to classify dogs by breed
+Simple flask app that plays around with the Stanford Dog Dataset in a few ways
+Has a guessing game functionality
+Uses a CNN (InceptionV3 model) to classify dogs by breed
+Uses traditional CV methods (BoW, VLAD) to classify dogs by breed
 
 # Flask stuff/guessing game
 
-### Step 1
+### Step 1 -- Done
 Build out a basic guessing game functionality
 
-### Step 2
+### Step 2 -- Done
 Build navigational controls so the game can be repeated
 Create a good way for the user to know what their options for guessing are
 Sanitize user input
+Score tracking
 
 ### Step 3
 Computer vs Human model (Requires CV or DL model)
-Score tracking
 
 # TODO Computer Vision (CV) model
 

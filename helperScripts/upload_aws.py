@@ -1,6 +1,9 @@
 import boto3
 import configparser
 import os
+import pickle
+from collections import defaultdict
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -20,18 +23,21 @@ s3 = boto3.resource(
 
 image_direc = "dogs/static/Images"
 
+key_set = defaultdict(list)
+
 for species_full in os.listdir(image_direc):
 
     species = species_full.split("-")[1]
 
     print("uploading %s" % (species))
 
-    for dog in os.listdir(image_direc + "/" + species_full):
-        key = species + "/" + dog
+    for i, dog in enumerate(os.listdir(image_direc + "/" + species_full)):
+        key = species + "/" + str(i)
         data = open(image_direc + "/" + species_full + "/" + dog, 'rb')
+
+        key_set[species].append(key)
 
         s3.Bucket(s3_bucket).put_object(Key=key, Body=data)
 
-
-# file_path = "Images/n02085620-Chihuahua/n02085620_199.jpg"
-# data = open(image_direc + file_path, 'rb')
+with open("dogs/dogKeys.pickle", "wb") as f:
+    pickle.dump(key_set, f, protocol=pickle.HIGHEST_PROTOCOL)

@@ -1,6 +1,26 @@
 from flask import Flask, render_template, request, make_response
 import os
 import random
+import boto3
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+IAMAccessKey = config['DEFAULT']["IAMAccessKey"]
+IAMSecretKey = config['DEFAULT']["IAMSecretKey"]
+s3_region = config['DEFAULT']["s3_region"]
+
+s3_bucket = config['DEFAULT']["s3_bucket"]
+
+s3 = boto3.client(
+    's3',
+    aws_access_key_id=IAMAccessKey,
+    aws_secret_access_key=IAMSecretKey,
+    region_name=s3_region
+    )
+
+image_direc = "dogs/static/Images"
 
 
 app = Flask(__name__)
@@ -51,9 +71,6 @@ def get_dog_handler(breed, dog_id):
 @app.route("/guess/", methods=["POST"])
 def guess_handler():
 
-    # TODO: Convert both of these to lower case (no longer relevant w/ dropdown) # noqa
-    # TODO: Alphabetize the dropdown
-    # guess = request.form['guess']
     breed = request.form['breed']
     full_path = request.form['full_path']
     guess = request.form['dropdown']
